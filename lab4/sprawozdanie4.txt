@@ -1,0 +1,646 @@
+#Wyświetlenie informacji o dostępnej piaskownicy
+anna@anna:~/mk1-272395/SP/lab4$ ssh "ssh://git@156.17.7.16:59004" info
+hello 272395, this is git@git-student running gitolite3 v3.6.13-4-ga546e5e on git 2.43.0
+
+ R W    24-25-1-p-2
+ R W    testing
+ #Sklonowanie swojego repozytorium
+anna@anna:~/mk1-272395/SP/lab4$ git clone ssh://git@156.17.7.16:59004/24-25-1-p-2
+Cloning into '24-25-1-p-2'...
+remote: Enumerating objects: 87, done.
+remote: Counting objects: 100% (87/87), done.
+remote: Compressing objects: 100% (87/87), done.
+remote: Total 87 (delta 47), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (87/87), 12.22 KiB | 1.36 MiB/s, done.
+Resolving deltas: 100% (47/47), done.
+anna@anna:~/mk1-272395/SP/lab4$ ssh -v -p 59004 git@156.17.7.16
+OpenSSH_8.9p1 Ubuntu-3ubuntu0.10, OpenSSL 3.0.2 15 Mar 2022
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 156.17.7.16 [156.17.7.16] port 59004.
+debug1: Connection established.
+debug1: identity file /home/anna/.ssh/id_rsa type 0
+debug1: identity file /home/anna/.ssh/id_rsa-cert type -1
+debug1: identity file /home/anna/.ssh/id_ecdsa type -1
+debug1: identity file /home/anna/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/anna/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/anna/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/anna/.ssh/id_ed25519 type 3
+debug1: identity file /home/anna/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/anna/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/anna/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/anna/.ssh/id_xmss type -1
+debug1: identity file /home/anna/.ssh/id_xmss-cert type -1
+debug1: identity file /home/anna/.ssh/id_dsa type -1
+debug1: identity file /home/anna/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.10
+debug1: Remote protocol version 2.0, remote software version OpenSSH_9.6p1 Ubuntu-3ubuntu13.5
+debug1: compat_banner: match: OpenSSH_9.6p1 Ubuntu-3ubuntu13.5 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to 156.17.7.16:59004 as 'git'
+debug1: load_hostkeys: fopen /home/anna/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:ZrUcw6lgzAs5yevVTtWCFP8LZee18Sv1Z/CVjC/pmMo
+debug1: load_hostkeys: fopen /home/anna/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host '[156.17.7.16]:59004' is known and matches the ED25519 host key.
+debug1: Found key in /home/anna/.ssh/known_hosts:13
+debug1: ssh_packet_send2_wrapped: resetting send seqnr 3
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: ssh_packet_read_poll2: resetting read seqnr 3
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: get_agent_identities: bound agent to hostkey
+debug1: get_agent_identities: agent returned 2 keys
+debug1: Will attempt key: /home/anna/.ssh/id_rsa RSA SHA256:eLEJ/c8tFgmlCrPgYdascBvw0CI89OirwYOuCFsTnDQ agent
+debug1: Will attempt key: /home/anna/.ssh/id_ed25519 ED25519 SHA256:iqw5lq2HfksG7x84jxz7Oc/gEiKspfG4ZucKqLlq6LY agent
+debug1: Will attempt key: /home/anna/.ssh/id_ecdsa
+debug1: Will attempt key: /home/anna/.ssh/id_ecdsa_sk
+debug1: Will attempt key: /home/anna/.ssh/id_ed25519_sk
+debug1: Will attempt key: /home/anna/.ssh/id_xmss
+debug1: Will attempt key: /home/anna/.ssh/id_dsa
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+>
+debug1: kex_input_ext_info: publickey-hostbound@openssh.com=<0>
+debug1: kex_input_ext_info: ping@openssh.com (unrecognised)
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/anna/.ssh/id_rsa RSA SHA256:eLEJ/c8tFgmlCrPgYdascBvw0CI89OirwYOuCFsTnDQ agent
+debug1: Server accepts key: /home/anna/.ssh/id_rsa RSA SHA256:eLEJ/c8tFgmlCrPgYdascBvw0CI89OirwYOuCFsTnDQ agent
+Authenticated to 156.17.7.16 ([156.17.7.16]:59004) using "publickey".
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /home/anna/.ssh/known_hosts for [156.17.7.16]:59004 / (none)
+debug1: client_input_hostkeys: searching /home/anna/.ssh/known_hosts2 for [156.17.7.16]:59004 / (none)
+debug1: client_input_hostkeys: hostkeys file /home/anna/.ssh/known_hosts2 does not exist
+debug1: client_input_hostkeys: no new or deprecated keys from server
+debug1: Remote: /home/git/.ssh/authorized_keys:117: key options: command user-rc
+debug1: Remote: /home/git/.ssh/authorized_keys:117: key options: command user-rc
+debug1: Sending environment.
+debug1: channel 0: setting env LC_ADDRESS = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_NAME = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_MONETARY = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_PAPER = "pl_PL.UTF-8"
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: channel 0: setting env LC_IDENTIFICATION = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_TELEPHONE = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_MEASUREMENT = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_TIME = "pl_PL.UTF-8"
+debug1: channel 0: setting env LC_NUMERIC = "pl_PL.UTF-8"
+PTY allocation request failed on channel 0
+hello 272395, this is git@git-student running gitolite3 v3.6.13-4-ga546e5e on git 2.43.0
+
+ R W    24-25-1-p-2
+ R W    testing
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+Connection to 156.17.7.16 closed.
+Transferred: sent 4160, received 3248 bytes, in 2.3 seconds
+Bytes per second: sent 1774.2, received 1385.3
+debug1: Exit status 0
+#Zapisywanie
+anna@anna:~/mk1-272395/SP/lab4$ tmux capture-pane -p -S'-' -E'-' >> sprawozdane4.txt
+anna@anna:~/mk1-272395/SP/lab4$ cd  24-25-1-p-2
+#Tworzenie nowej gałęzi
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git checkout -b branches_s272395
+Switched to a new branch 'branches_s272395'
+#Zmiana plików wspólnych i dodawanie własnego
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git add makefile program.h main.c s272395_podprogram.c
+#Commit z tymi zmianami
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git commit -m "Zmiana plików wspólnych (makefile, program.h, main.c) oraz dodanie pliku s272395_podprogram.c przez studenta 272395"
+[branches_s272395 fe687fb] Zmiana plików wspólnych (makefile, program.h, main.c) oraz dodanie pliku s272395_podprogram.c przez studenta 272395
+ 4 files changed, 21 insertions(+)
+ create mode 100644 s272395_podprogram.c
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ cat s272395_podprogram.c
+#include "program.h"
+
+void s272395_podprogram()
+{
+    printf("Student nr indeksu: 272395\n");
+    printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
+
+    int x;
+    printf("Podaj liczbę x: ");
+    scanf("%d", &x);
+
+    printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
+}
+#Wypchnięcie (push) wszystkich zmian 
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin branches_s272395
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 864 bytes | 864.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ * [new branch]      branches_s272395 -> branches_s272395
+#Etykietowanie
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git tag v_s272395
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push --tags
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ * [new tag]         v_s272395 -> v_s272395
+#Merge
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git merge branches_s272395
+Updating 64c4424..fe687fb
+Fast-forward
+ main.c               |  3 +++
+ makefile             |  3 +++
+ program.h            |  1 +
+ s272395_podprogram.c | 14 ++++++++++++++
+ 4 files changed, 21 insertions(+)
+ create mode 100644 s272395_podprogram.c
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To ssh://156.17.7.16:59004/24-25-1-p-2
+   64c4424..fe687fb  master -> master
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git log --all --graph --decorate --oneline
+* fe687fb (HEAD -> master, tag: v_s272395, origin/master, origin/branches_s272395, origin/HEAD, branches_s272395) Zmiana plików wspólnych (makefile, program.h, main.c) oraz dodanie pliku s272395_podprogra
+m.c przez studenta 272395
+* 64c4424 (tag: v_272398_) Dodano program dla 272398
+* 93f3cdf Revert "Dodano program dla 272398"
+* 37c02cd (tag: v_272398_old, tag: v_272398) Dodano program dla 272398
+| * ace7b0b (tag: s272362_) 272362 add program
+|/
+* c210090 delete changes 272362
+* 5d51b9b 272362 changes again
+* a5fc324 repair makefile by 272362
+* 86ddceb (tag: s272362) 272362 changes
+* 89bfb15 (tag: s272388) changes 272388
+* ee13c4e (tag: v_272370) podprogram 272370
+* 5adb43b (tag: v_272354, origin/272354) dodano rozwiązanie studenta 272354
+* 0bb6a52 dodano rozwiązanie studenta 272354
+* 89e98cd (tag: s272383) Dodano podprogram s272383_podprogram.c
+* fff7624 (tag: s999) Student 999 wprowadza odpowiednie poprawki w makefile i pozostałych plikach źródłowych.
+*   b495dd4 Merge branch 'master' into branch-999
+|\
+| * e0cac2e admin wprowadza poprawki w pliku makefile.
+* | baf27db Student 999 tworzy swoją gałąź i przełącza się na nią, wykonując  polecenia:
+|/
+* 871c472     admin wprowadza trochę poprawek do organizacji projektu:
+* 2ccbb68 admin tworzy pliki z wstępną wersją projektu
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git tag
+s272362
+s272362_
+s272383
+s272388
+s999
+v_272354
+v_272370
+v_272398
+v_272398_
+v_272398_old
+v_s272395
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git show v_s272395
+commit fe687fbc60470a01b942af1369baeb7f1bff3877 (HEAD -> master, tag: v_s272395, origin/master, origin/branches_s272395, origin/HEAD, branches_s272395)
+Author: anna <anna@gmail.com>
+Date:   Sun Nov 24 18:37:27 2024 +0100
+
+    Zmiana plików wspólnych (makefile, program.h, main.c) oraz dodanie pliku s272395_podprogram.c przez studenta 272395
+
+diff --git a/main.c b/main.c
+index e3144e9..dbb3753 100644
+--- a/main.c
++++ b/main.c
+@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
+       case 272398: /* podprogram studenta 272398 */
+         s272398_podprogram() ;
+         break;
++      case 272395: /* podprogram studenta 272395 */
++        s272395_podprogram() ;
++        break;
+       default:
+        printf("\nStudent o numerze indeksu %d nie wykonał jeszcze zadania\n\n",idx);
+       break;
+diff --git a/makefile b/makefile
+index 93bcc05..fa741aa 100644
+--- a/makefile
++++ b/makefile
+@@ -5,6 +5,7 @@ objects = main.o program_usage.o \
+           s272370_podprogram.o \
+           s272388_podprogram.o \
+           s272398_podprogram.o \
++          s272395_podprogram.o \
+           s999.o
+
+ program : $(objects)
+@@ -27,6 +28,8 @@ s272388_podprogram.o : program.h
+
+ s272398_podprogram.o : program.h
+
++s272395_podprogram.o : program.h
++
+ .PHONY : clean
+
+ clean :
+diff --git a/program.h b/program.h
+index 57c299f..e445275 100644
+--- a/program.h
++++ b/program.h
+@@ -19,4 +19,5 @@ void s272354_podprogram(); /* funkcja studenta 272354 */
+ void s272370_podprogram(); /* funkcja studenta 272370 */
+ void s272388_podprogram(); /* funkcja studenta 272388 */
+ void s272398_podprogram(); /* funkcja studenta 272398 */
++void s272395_podprogram(); /* funkcja studenta 272395 */
+
+diff --git a/s272395_podprogram.c b/s272395_podprogram.c
+new file mode 100644
+index 0000000..ba692b0
+--- /dev/null
++++ b/s272395_podprogram.c
+@@ -0,0 +1,14 @@
++#include "program.h"
++
++void s272395_podprogram()
++{
++    printf("Student nr indeksu: 272395\n");
++    printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
++
++    int x;
++    printf("Podaj liczbę x: ");
++    scanf("%d", &x);
++
++    printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
++}
++
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ cd ..
+anna@anna:~/mk1-272395/SP/lab4$ tmux capture-pane -p -S'-' -E'-' >> my-log
+anna@anna:~/mk1-272395/SP/lab4$ cd 24-25-1-p-2
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git branch -d branches_s272395
+Deleted branch branches_s272395 (was fe687fb).
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin --delete branches_s272395
+remote: FATAL: + refs/heads/branches_s272395 24-25-1-p-2 272395 DENIED by fallthru
+remote: error: hook declined to update refs/heads/branches_s272395
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ ! [remote rejected] branches_s272395 (hook declined)
+error: failed to push some refs to 'ssh://156.17.7.16:59004/24-25-1-p-2'
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push ssh://156.17.7.16:59004/24-25-1-p-2 --delete branches_s272395
+anna@156.17.7.16: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git branch -a
+* master
+  remotes/origin/272354
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/branches_s272395
+  remotes/origin/master
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin --delete branches_s272395
+remote: FATAL: + refs/heads/branches_s272395 24-25-1-p-2 272395 DENIED by fallthru
+remote: error: hook declined to update refs/heads/branches_s272395
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ ! [remote rejected] branches_s272395 (hook declined)
+error: failed to push some refs to 'ssh://156.17.7.16:59004/24-25-1-p-2'
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin --delete branches_s272395 --force
+remote: FATAL: + refs/heads/branches_s272395 24-25-1-p-2 272395 DENIED by fallthru
+remote: error: hook declined to update refs/heads/branches_s272395
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ ! [remote rejected] branches_s272395 (hook declined)
+error: failed to push some refs to 'ssh://156.17.7.16:59004/24-25-1-p-2'
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git checkout master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git branch -D branches_s272395
+error: branch 'branches_s272395' not found.
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git checkout master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git branch -a
+* master
+  remotes/origin/272354
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/branches_s272395
+  remotes/origin/master
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin --delete branches_s272395
+ssh: connect to host 156.17.7.16 port 59004: Connection timed out
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin --delete branches_s272395
+remote: FATAL: + refs/heads/branches_s272395 24-25-1-p-2 272395 DENIED by fallthru
+remote: error: hook declined to update refs/heads/branches_s272395
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ ! [remote rejected] branches_s272395 (hook declined)
+error: failed to push some refs to 'ssh://156.17.7.16:59004/24-25-1-p-2'
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git push origin :refs/heads/branches_s272395
+remote: FATAL: + refs/heads/branches_s272395 24-25-1-p-2 272395 DENIED by fallthru
+remote: error: hook declined to update refs/heads/branches_s272395
+To ssh://156.17.7.16:59004/24-25-1-p-2
+ ! [remote rejected] branches_s272395 (hook declined)
+error: failed to push some refs to 'ssh://156.17.7.16:59004/24-25-1-p-2'
+anna@anna:~/mk1-272395/SP/lab4$ cd 24-25-1-p-2
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ make clean
+make
+./program
+rm *.o program
+rm: cannot remove '*.o': No such file or directory
+rm: cannot remove 'program': No such file or directory
+make: [makefile:36: clean] Error 1 (ignored)
+cc    -c -o main.o main.c
+cc    -c -o program_usage.o program_usage.c
+cc    -c -o s0_podprogram.o s0_podprogram.c
+cc    -c -o s272383_podprogram.o s272383_podprogram.c
+cc    -c -o s272354_podprogram.o s272354_podprogram.c
+cc    -c -o s272370_podprogram.o s272370_podprogram.c
+cc    -c -o s272388_podprogram.o s272388_podprogram.c
+cc    -c -o s272398_podprogram.o s272398_podprogram.c
+cc    -c -o s272395_podprogram.o s272395_podprogram.c
+cc    -c -o s999.o s999.c
+cc -o program main.o program_usage.o s0_podprogram.o s272383_podprogram.o s272354_podprogram.o s272370_podprogram.o s272388_podprogram.o s272398_podprogram.o s272395_podprogram.o s999.o
+wywołanie: program <nr_indeksu>
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ ./program 272395
+Student nr indeksu: 272395
+Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22
+Podaj liczbę x: 1
+Liczba x pomnożona przez 22 wynosi: 22
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ cd ..
+anna@anna:~/mk1-272395/SP/lab4$ git checkout v_s272395
+fatal: not a git repository (or any of the parent directories): .git
+anna@anna:~/mk1-272395/SP/lab4$ cd 24-25-1-p-2
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git checkout v_s272395
+Note: switching to 'v_s272395'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at fe687fb Zmiana plików wspólnych (makefile, program.h, main.c) oraz dodanie pliku s272395_podprogram.c przez studenta 272395
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ make clean
+make
+rm *.o program
+cc    -c -o main.o main.c
+cc    -c -o program_usage.o program_usage.c
+cc    -c -o s0_podprogram.o s0_podprogram.c
+cc    -c -o s272383_podprogram.o s272383_podprogram.c
+cc    -c -o s272354_podprogram.o s272354_podprogram.c
+cc    -c -o s272370_podprogram.o s272370_podprogram.c
+cc    -c -o s272388_podprogram.o s272388_podprogram.c
+cc    -c -o s272398_podprogram.o s272398_podprogram.c
+cc    -c -o s272395_podprogram.o s272395_podprogram.c
+cc    -c -o s999.o s999.c
+cc -o program main.o program_usage.o s0_podprogram.o s272383_podprogram.o s272354_podprogram.o s272370_podprogram.o s272388_podprogram.o s272398_podprogram.o s272395_podprogram.o s999.o
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ ./program
+wywołanie: program <nr_indeksu>
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ ./program 272395
+Student nr indeksu: 272395
+Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22
+Podaj liczbę x: 2
+Liczba x pomnożona przez 22 wynosi: 44
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie4.txt
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git diff master v__s272395
+fatal: ambiguous argument 'v__s272395': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git log --all --graph --decorate
+* commit fe687fbc60470a01b942af1369baeb7f1bff3877 (HEAD -> master, tag: v_s272395, origin/master, origin/branches_s272395, origin/HEAD)
+| Author: anna <anna@gmail.com>
+| Date:   Sun Nov 24 18:37:27 2024 +0100
+|
+|     Zmiana plików wspólnych (makefile, program.h, main.c) oraz dodanie pliku s272395_podprogram.c przez studenta 272395
+|
+* commit 64c442474100ffcb5dfb3d7a85316eee41d64e5c (tag: v_272398_)
+| Author: kallazz <michael.w.kallas@gmail.com>
+| Date:   Sat Nov 23 18:22:06 2024 +0100
+|
+|     Dodano program dla 272398
+|
+* commit 93f3cdf4d2408e13cad526df018f5fde896c3e46
+| Author: kallazz <michael.w.kallas@gmail.com>
+| Date:   Sat Nov 23 18:09:35 2024 +0100
+|
+|     Revert "Dodano program dla 272398"
+|
+|     This reverts commit 37c02cda309c0c43c016ea6e551c93482b5ae431.
+|
+* commit 37c02cda309c0c43c016ea6e551c93482b5ae431 (tag: v_272398_old, tag: v_272398)
+| Author: kallazz <michael.w.kallas@gmail.com>
+| Date:   Sat Nov 23 18:05:18 2024 +0100
+|
+|     Dodano program dla 272398
+|
+| * commit ace7b0bed4c7a3f9728783a1b4f151ebe3659f3e (tag: s272362_)
+|/  Author: Zofia Kuriata <zosia.kuriata7@gmail.com>
+|   Date:   Sat Nov 23 08:43:30 2024 +0100
+|
+|       272362 add program
+|
+* commit c210090e09cda639c0fed8e7b0c16d21205b1137
+| Author: Zofia Kuriata <zosia.kuriata7@gmail.com>
+| Date:   Sat Nov 23 08:37:46 2024 +0100
+|
+|     delete changes 272362
+|
+* commit 5d51b9b9ff877f7076b51c8f0ea4461f3ec1ee32
+| Author: Zofia Kuriata <zosia.kuriata7@gmail.com>
+| Date:   Sat Nov 23 08:25:07 2024 +0100
+|
+|     272362 changes again
+|
+* commit a5fc3242c8f1fccea2b10cd63ddf53885b070a8f
+| Author: Zofia Kuriata <zosia.kuriata7@gmail.com>
+| Date:   Sat Nov 23 08:03:06 2024 +0100
+|
+|     repair makefile by 272362
+|
+* commit 86ddcebde7b664bdd22757c7383f070f514b0fa4 (tag: s272362)
+| Author: Zofia Kuriata <zosia.kuriata7@gmail.com>
+| Date:   Sat Nov 23 07:52:16 2024 +0100
+|
+|     272362 changes
+|
+* commit 89bfb153399f8850cb68ca63d128088404b1ba89 (tag: s272388)
+| Author: Domofold <domeg630@gmail.com>
+| Date:   Fri Nov 22 18:09:06 2024 +0100
+|
+|     changes 272388
+|
+* commit ee13c4ec7fd2df8d0f09c0374e6c41b9de656bf7 (tag: v_272370)
+| Author: mpoprawa <m.poprawa23@gmail.com>
+| Date:   Wed Nov 20 17:30:41 2024 +0100
+|
+|     podprogram 272370
+|
+* commit 5adb43b3040b727766894d445e620867aeda7e9a (tag: v_272354, origin/272354)
+| Author: Kinga <272354@student.pwr.edu.pl>
+| Date:   Wed Nov 20 13:39:40 2024 +0100
+|
+|     dodano rozwiązanie studenta 272354
+|
+* commit 0bb6a5214bcf8ee28716d6a820070cd5842d6b7f
+| Author: Kinga <272354@student.pwr.edu.pl>
+| Date:   Wed Nov 20 13:38:02 2024 +0100
+|
+|     dodano rozwiązanie studenta 272354
+|
+* commit 89e98cdd8cc98450560412558a10f58a9192db6f (tag: s272383)
+| Author: wikto <wikto@ideapad-wikto.home>
+| Date:   Thu Nov 14 17:15:09 2024 +0100
+|
+|     Dodano podprogram s272383_podprogram.c
+|
+* commit fff7624ae83a5a362a07ca898ce45efd10c875f2 (tag: s999)
+| Author: Student Sztuczny 999 <999@nibyuczelnia>
+| Date:   Mon Nov 10 14:30:55 2014 +0100
+|
+|     Student 999 wprowadza odpowiednie poprawki w makefile i pozostałych plikach źródłowych.
+|
+*   commit b495dd411d82d84c118cced42125d6fe0bd57769
+|\  Merge: baf27db e0cac2e
+| | Author: Student Sztuczny 999 <999@nibyuczelnia>
+| | Date:   Mon Nov 10 13:59:02 2014 +0100
+| |
+| |     Merge branch 'master' into branch-999
+| |
+| |     Student 999 dokonał synchronizacji swojej gałęzi ze zmianami dokonanymi przez admina w origin/master.
+| |     Polecenia:
+| |       git checkout master
+| |       git pull
+| |       git checkout branch-999
+| |       git merge master
+| |
+| * commit e0cac2e9636ab179b95340d4f19c1b1ed4234c76
+| | Author: admin <Marcin.Kik@pwr.edu.pl>
+| | Date:   Mon Nov 10 13:54:58 2014 +0100
+| |
+| |     admin wprowadza poprawki w pliku makefile.
+| |
+* | commit baf27dba822c9b17c97baddf3bf5324811b24860
+|/  Author: Student Sztuczny 999 <999@nibyuczelnia>
+|   Date:   Mon Nov 10 13:45:43 2014 +0100
+|
+|       Student 999 tworzy swoją gałąź i przełącza się na nią,
+|       wykonując  polecenia:
+|
+|         git branch branch-999
+|         git checkout branch-999
+|
+|       Student 999 dodaje plik s999.c z podprogramem, ale jeszcze nie
+|       uwzględnił go w makefile i pozostałych plikach źródłowych.
+|
+* commit 871c4727e2370ff70fbff9878c222e33ba5e2b4f
+| Author: admin <Marcin.Kik@pwr.edu.pl>
+| Date:   Mon Nov 10 12:53:38 2014 +0100
+|
+|         admin wprowadza trochę poprawek do organizacji projektu:
+|
+|         - dodany został plik: makefile -- teraz program kompiluje się poleceniem make
+|         - dodany został szablonowy przykład podprogramu -- pilk: s0_podprogram.c
+|
+* commit 2ccbb68c9bfb88a15caf7884ec3877837bc4be79
+  Author: admin <Marcin.Kik@pwr.edu.pl>
+  Date:   Mon Nov 10 12:36:14 2014 +0100
+
+      admin tworzy pliki z wstępną wersją projektu
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ git show s999
+tag s999
+Tagger: Student Sztuczny 999 <999@nibyuczelnia>
+Date:   Mon Nov 10 14:42:33 2014 +0100
+
+Tag utworzony przez studenta 999
+
+Student scalił swoją gałąź do gałęzi master i wypchnął ją na srewer:
+
+  git checkout master
+  git merge branch-999  # scalenie typu: fast-forward, więc nie powstał nowy commit
+  git push
+
+A następnie utworzył annotated tag (zawierający niniejszy tekst):
+
+  git tag -a s999
+
+Ten tag zostanie wysłany na serwer poleceniem: git push --tags
+
+commit fff7624ae83a5a362a07ca898ce45efd10c875f2 (tag: s999)
+Author: Student Sztuczny 999 <999@nibyuczelnia>
+Date:   Mon Nov 10 14:30:55 2014 +0100
+
+    Student 999 wprowadza odpowiednie poprawki w makefile i pozostałych plikach źródłowych.
+    Student 999 wprowadza odpowiednie poprawki w makefile i pozostałych plikach źródłowych.
+
+diff --git a/main.c b/main.c
+index b92b947..105959f 100644
+--- a/main.c
++++ b/main.c
+@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
+       case 0:
+        s0_podprogram() ; // podprogram studenta o numerze indeksu 0
+        break;
++      case 999: /* podprogram studenta 999 */
++        s999_podprogram() ;
++        break;
+       default:
+        printf("\nStudent o numerze indeksu %d nie wykonał jeszcze zadania\n\n",idx);
+       break;
+diff --git a/makefile b/makefile
+index 2e1361a..56c741b 100644
+--- a/makefile
++++ b/makefile
+@@ -1,5 +1,6 @@
+ objects = main.o program_usage.o \
+-          s0_podprogram.o
++          s0_podprogram.o \
++          s999.o
+
+ program : $(objects)
+        cc -o program $(objects)
+@@ -9,8 +10,9 @@ program_usage.o : program.h
+
+ s0_podprogram.o : program.h
+
++s999.o : s999.c
++
+ .PHONY : clean
+
+ clean :
+        -rm *.o program
+-
+diff --git a/program.h b/program.h
+index 3686a29..80cb3a9 100644
+--- a/program.h
++++ b/program.h
+@@ -13,7 +13,7 @@ void program_usage( );
+    aby nie kolidowały z nazwami funkcji innych studentów */
+
+ void s0_podprogram(); /* funkcja studenta 0 */
+-
++void s999_podprogram(); /* funcja studenta 999 */
+
+
+
+anna@anna:~/mk1-272395/SP/lab4/24-25-1-p-2$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie4.txt
+

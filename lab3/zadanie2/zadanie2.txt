@@ -1,0 +1,131 @@
+anna@anna:~/mk1-272395/SP$ svn export https://repo.cs.pwr.edu.pl/mk1-272395/SP/lab3/zadanie2/l3z2.bash
+A    l3z2.bash
+Export complete.
+anna@anna:~/mk1-272395/SP$ chmod +x l3z2.bash
+anna@anna:~/mk1-272395/SP$ ./l3z2.bash 15 https://repo.cs.pwr.edu.pl/info/SP/l3/a/
+A    /tmp/tmp.Y0xmKOJooV
+A    /tmp/tmp.Y0xmKOJooV/a
+A    /tmp/tmp.Y0xmKOJooV/a/b
+A    /tmp/tmp.Y0xmKOJooV/aa
+A    /tmp/tmp.Y0xmKOJooV/aa/b
+A    /tmp/tmp.Y0xmKOJooV/aaa
+A    /tmp/tmp.Y0xmKOJooV/aaa/b
+A    /tmp/tmp.Y0xmKOJooV/aab
+A    /tmp/tmp.Y0xmKOJooV/aab/b
+A    /tmp/tmp.Y0xmKOJooV/ab
+A    /tmp/tmp.Y0xmKOJooV/ab/b
+A    /tmp/tmp.Y0xmKOJooV/aba
+A    /tmp/tmp.Y0xmKOJooV/aba/b
+A    /tmp/tmp.Y0xmKOJooV/abb
+A    /tmp/tmp.Y0xmKOJooV/abb/b
+A    /tmp/tmp.Y0xmKOJooV/b
+A    /tmp/tmp.Y0xmKOJooV/b/b
+A    /tmp/tmp.Y0xmKOJooV/ba
+A    /tmp/tmp.Y0xmKOJooV/ba/b
+A    /tmp/tmp.Y0xmKOJooV/baa
+A    /tmp/tmp.Y0xmKOJooV/baa/b
+A    /tmp/tmp.Y0xmKOJooV/bab
+A    /tmp/tmp.Y0xmKOJooV/bab/b
+A    /tmp/tmp.Y0xmKOJooV/bb
+A    /tmp/tmp.Y0xmKOJooV/bb/b
+A    /tmp/tmp.Y0xmKOJooV/bba
+A    /tmp/tmp.Y0xmKOJooV/bba/b
+A    /tmp/tmp.Y0xmKOJooV/bbb
+A    /tmp/tmp.Y0xmKOJooV/bbb/b
+A    /tmp/tmp.Y0xmKOJooV/a/b/aab
+A    /tmp/tmp.Y0xmKOJooV/aa/b/aaab
+A    /tmp/tmp.Y0xmKOJooV/aaa/b/aaaab
+A    /tmp/tmp.Y0xmKOJooV/aab/b/aaabb
+A    /tmp/tmp.Y0xmKOJooV/ab/b/aabb
+A    /tmp/tmp.Y0xmKOJooV/aba/b/aabab
+A    /tmp/tmp.Y0xmKOJooV/abb/b/aabbb
+A    /tmp/tmp.Y0xmKOJooV/b/ab
+A    /tmp/tmp.Y0xmKOJooV/b/b/abb
+A    /tmp/tmp.Y0xmKOJooV/ba/b/abab
+A    /tmp/tmp.Y0xmKOJooV/baa/b/abaab
+A    /tmp/tmp.Y0xmKOJooV/bab/b/ababb
+A    /tmp/tmp.Y0xmKOJooV/bb/b/abbb
+A    /tmp/tmp.Y0xmKOJooV/bba/b/abbab
+A    /tmp/tmp.Y0xmKOJooV/bbb/b/abbbb
+Exported revision 15.
+     10 a
+      3 aa
+      1 aaa
+      1 aaaab
+      1 aaabb
+      2 aab
+      1 aabab
+      1 aabbb
+      6 ab
+      1 aba
+      1 abaab
+      1 ababb
+      2 abb
+      1 abbab
+      1 abbbb
+     10 b
+      1 bab
+      3 bb
+      1 bbb
+anna@anna:~/mk1-272395/SP$ ./l3z2.bash 23 https://repo.cs.pwr.edu.pl/info/SP/l3/a/
+A    /tmp/tmp.hbhikIOXR8
+A    /tmp/tmp.hbhikIOXR8/baa
+A    /tmp/tmp.hbhikIOXR8/baa/b
+A    /tmp/tmp.hbhikIOXR8/ba
+A    /tmp/tmp.hbhikIOXR8/ba/b
+A    /tmp/tmp.hbhikIOXR8/a
+A    /tmp/tmp.hbhikIOXR8/a/b
+A    /tmp/tmp.hbhikIOXR8/aa
+A    /tmp/tmp.hbhikIOXR8/aa/b
+A    /tmp/tmp.hbhikIOXR8/aaa
+A    /tmp/tmp.hbhikIOXR8/aaa/b
+A    /tmp/tmp.hbhikIOXR8/aab
+A    /tmp/tmp.hbhikIOXR8/aab/b
+A    /tmp/tmp.hbhikIOXR8/ab
+A    /tmp/tmp.hbhikIOXR8/ab/b
+A    /tmp/tmp.hbhikIOXR8/aba
+A    /tmp/tmp.hbhikIOXR8/aba/b
+A    /tmp/tmp.hbhikIOXR8/abb
+A    /tmp/tmp.hbhikIOXR8/abb/b
+A    /tmp/tmp.hbhikIOXR8/bab
+A    /tmp/tmp.hbhikIOXR8/bab/b
+A    /tmp/tmp.hbhikIOXR8/bba
+A    /tmp/tmp.hbhikIOXR8/bba/b
+A    /tmp/tmp.hbhikIOXR8/bbb
+A    /tmp/tmp.hbhikIOXR8/bbb/b
+A    /tmp/tmp.hbhikIOXR8/baa/dc
+A    /tmp/tmp.hbhikIOXR8/baa/b/abaab
+A    /tmp/tmp.hbhikIOXR8/ba/b/abab
+A    /tmp/tmp.hbhikIOXR8/a/b/aab
+A    /tmp/tmp.hbhikIOXR8/aa/b/aaab
+A    /tmp/tmp.hbhikIOXR8/aaa/b/aaaab
+A    /tmp/tmp.hbhikIOXR8/aab/b/aaabb
+A    /tmp/tmp.hbhikIOXR8/ab/b/aabb
+A    /tmp/tmp.hbhikIOXR8/aba/b/aabab
+A    /tmp/tmp.hbhikIOXR8/abb/b/aabbb
+A    /tmp/tmp.hbhikIOXR8/bab/b/ababb
+A    /tmp/tmp.hbhikIOXR8/bba/b/abbab
+A    /tmp/tmp.hbhikIOXR8/bbb/b/abbbb
+Exported revision 23.
+      6 a
+      3 aa
+      1 aaa
+      1 aaaab
+      1 aaabb
+      2 aab
+      1 aabab
+      1 aabbb
+      4 ab
+      1 aba
+      1 abaab
+      1 ababb
+      1 abb
+      1 abbab
+      1 abbbb
+      5 b
+      1 bab
+      1 bb
+      3 c
+      2 d
+anna@anna:~/mk1-272395/SP$ tmux capture-pane -p -S'-' -E'-' >> zadanie2.txt
+

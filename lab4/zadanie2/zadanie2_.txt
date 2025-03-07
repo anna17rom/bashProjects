@@ -1,0 +1,323 @@
+anna@anna:~/mk1-272395/SP/lab4$ svn export https://repo.cs.pwr.edu.pl/mk1-272395/SP/lab4/zadanie2/l4z2.bash
+svn: E200009: Destination file 'l4z2.bash' exists, and will not be overwritten unless forced
+anna@anna:~/mk1-272395/SP/lab4$ svn export https://repo.cs.pwr.edu.pl/mk1-272395/SP/lab4/zadanie2/l4z2.bash
+svn: E200009: Destination file 'l4z2.bash' exists, and will not be overwritten unless forced
+anna@anna:~/mk1-272395/SP/lab4$ clear
+anna@anna:~/mk1-272395/SP/lab4$ svn export https://repo.cs.pwr.edu.pl/mk1-272395/SP/lab4/zadanie2/l4z2.bash
+A    l4z2.bash
+Export complete.
+anna@anna:~/mk1-272395/SP/lab4$ chmod +x l4z2.bash
+anna@anna:~/mk1-272395/SP/lab4$ ./l4z2.bash 15 21 https://repo.cs.pwr.edu.pl/info/SP/l3/
+Initialized empty Git repository in /home/anna/mk1-272395/SP/lab4/l3/.git/
+A    svn_temp/a
+A    svn_temp/a/a
+A    svn_temp/a/a/b
+A    svn_temp/a/aa
+A    svn_temp/a/aa/b
+A    svn_temp/a/aaa
+A    svn_temp/a/aaa/b
+A    svn_temp/a/aab
+A    svn_temp/a/aab/b
+A    svn_temp/a/ab
+A    svn_temp/a/ab/b
+A    svn_temp/a/aba
+A    svn_temp/a/aba/b
+A    svn_temp/a/abb
+A    svn_temp/a/abb/b
+A    svn_temp/a/b
+A    svn_temp/a/b/b
+A    svn_temp/a/ba
+A    svn_temp/a/ba/b
+A    svn_temp/a/baa
+A    svn_temp/a/baa/b
+A    svn_temp/a/bab
+A    svn_temp/a/bab/b
+A    svn_temp/a/bb
+A    svn_temp/a/bb/b
+A    svn_temp/a/bba
+A    svn_temp/a/bba/b
+A    svn_temp/a/bbb
+A    svn_temp/a/bbb/b
+A    svn_temp/a/a/b/aab
+A    svn_temp/a/aa/b/aaab
+A    svn_temp/a/aaa/b/aaaab
+A    svn_temp/a/aab/b/aaabb
+A    svn_temp/a/ab/b/aabb
+A    svn_temp/a/aba/b/aabab
+A    svn_temp/a/abb/b/aabbb
+A    svn_temp/a/b/ab
+A    svn_temp/a/b/b/abb
+A    svn_temp/a/ba/b/abab
+A    svn_temp/a/baa/b/abaab
+A    svn_temp/a/bab/b/ababb
+A    svn_temp/a/bb/b/abbb
+A    svn_temp/a/bba/b/abbab
+A    svn_temp/a/bbb/b/abbbb
+Checked out revision 15.
+Przetwarzanie rewizji: 15
+[main (root-commit) af1659d] Rewizja 15: Brak wiadomości logu dla rewizji 15
+ 15 files changed, 27 insertions(+)
+ create mode 100644 a/a/b/aab
+ create mode 100644 a/aa/b/aaab
+ create mode 100644 a/aaa/b/aaaab
+ create mode 100644 a/aab/b/aaabb
+ create mode 100644 a/ab/b/aabb
+ create mode 100644 a/aba/b/aabab
+ create mode 100644 a/abb/b/aabbb
+ create mode 100644 a/b/ab
+ create mode 100644 a/b/b/abb
+ create mode 100644 a/ba/b/abab
+ create mode 100644 a/baa/b/abaab
+ create mode 100644 a/bab/b/ababb
+ create mode 100644 a/bb/b/abbb
+ create mode 100644 a/bba/b/abbab
+ create mode 100644 a/bbb/b/abbbb
+Commit dla rewizji 15 został dodany.
+Przetwarzanie rewizji: 16
+Updating '.':
+U    a/b/ab
+Updated to revision 16.
+[main 8f4b705] Rewizja 16: Brak wiadomości logu dla rewizji 16
+ 1 file changed, 1 insertion(+)
+Commit dla rewizji 16 został dodany.
+Przetwarzanie rewizji: 17
+Updating '.':
+U    a/ba/b/abab
+Updated to revision 17.
+[main 4e55b6f] Rewizja 17: Brak wiadomości logu dla rewizji 17
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Commit dla rewizji 17 został dodany.
+Przetwarzanie rewizji: 18
+Updating '.':
+A    a/baa/dc
+Updated to revision 18.
+[main 84d95ac] Rewizja 18: Brak wiadomości logu dla rewizji 18
+ 1 file changed, 2 insertions(+)
+ create mode 100644 a/baa/dc
+Commit dla rewizji 18 został dodany.
+Przetwarzanie rewizji: 19
+Updating '.':
+At revision 19.
+Brak zmian do commitowania dla rewizji 19.
+Przetwarzanie rewizji: 20
+Updating '.':
+D    a/b
+Updated to revision 20.
+[main c508290] Rewizja 20: Brak wiadomości logu dla rewizji 20
+ 2 files changed, 5 deletions(-)
+ delete mode 100644 a/b/ab
+ delete mode 100644 a/b/b/abb
+Commit dla rewizji 20 został dodany.
+Przetwarzanie rewizji: 21
+Updating '.':
+D    a/bb
+Updated to revision 21.
+[main 3f766bc] Rewizja 21: Brak wiadomości logu dla rewizji 21
+ 1 file changed, 3 deletions(-)
+ delete mode 100644 a/bb/b/abbb
+Commit dla rewizji 21 został dodany.
+Repozytorium GIT zostało utworzone w katalogu l3
+anna@anna:~/mk1-272395/SP/lab4$ tmux capture-pane -p -S'-' -E'-' >> zadanie2_.txt
+anna@anna:~/mk1-272395/SP/lab4$ cd l3
+anna@anna:~/mk1-272395/SP/lab4/l3$ git log --stat
+commit 3f766bcda8146555af9d7a1011ad568a5052a350 (HEAD -> main)
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:09 2024 +0100
+
+    Rewizja 21: Brak wiadomości logu dla rewizji 21
+
+ a/bb/b/abbb | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit c50829007664f2f043d98a7ed395b2da0b00b09e
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:09 2024 +0100
+
+    Rewizja 20: Brak wiadomości logu dla rewizji 20
+
+ a/b/ab    | 2 --
+ a/b/b/abb | 3 ---
+ 2 files changed, 5 deletions(-)
+
+commit 84d95ac2cfd3f2e1b888ea6d6cc3770c3f44b061
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+:...skipping...
+commit 3f766bcda8146555af9d7a1011ad568a5052a350 (HEAD -> main)
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:09 2024 +0100
+
+    Rewizja 21: Brak wiadomości logu dla rewizji 21
+
+ a/bb/b/abbb | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit c50829007664f2f043d98a7ed395b2da0b00b09e
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:09 2024 +0100
+
+    Rewizja 20: Brak wiadomości logu dla rewizji 20
+
+ a/b/ab    | 2 --
+ a/b/b/abb | 3 ---
+ 2 files changed, 5 deletions(-)
+
+commit 84d95ac2cfd3f2e1b888ea6d6cc3770c3f44b061
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+
+    Rewizja 18: Brak wiadomości logu dla rewizji 18
+
+ a/baa/dc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 4e55b6f48f83488867afafce14c1eaee9cba3ed2
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+
+    Rewizja 17: Brak wiadomości logu dla rewizji 17
+
+ a/ba/b/abab | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 8f4b70526184bf9f0a14ef106846047c095e888b
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+
+    Rewizja 16: Brak wiadomości logu dla rewizji 16
+
+ a/b/ab | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit af1659ddc6c02d7a49c5c82cb158671a92eddb43
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:07 2024 +0100
+
+    Rewizja 15: Brak wiadomości logu dla rewizji 15
+
+ a/a/b/aab     | 3 +++
+ a/aa/b/aaab   | 3 +++
+ a/aaa/b/aaaab | 1 +
+ a/aab/b/aaabb | 1 +
+:
+commit 3f766bcda8146555af9d7a1011ad568a5052a350 (HEAD -> main)
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:09 2024 +0100
+
+    Rewizja 21: Brak wiadomości logu dla rewizji 21
+
+ a/bb/b/abbb | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit c50829007664f2f043d98a7ed395b2da0b00b09e
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:09 2024 +0100
+
+    Rewizja 20: Brak wiadomości logu dla rewizji 20
+
+ a/b/ab    | 2 --
+ a/b/b/abb | 3 ---
+ 2 files changed, 5 deletions(-)
+
+commit 84d95ac2cfd3f2e1b888ea6d6cc3770c3f44b061
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+
+    Rewizja 18: Brak wiadomości logu dla rewizji 18
+
+ a/baa/dc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 4e55b6f48f83488867afafce14c1eaee9cba3ed2
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+
+    Rewizja 17: Brak wiadomości logu dla rewizji 17
+
+ a/ba/b/abab | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 8f4b70526184bf9f0a14ef106846047c095e888b
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:08 2024 +0100
+
+    Rewizja 16: Brak wiadomości logu dla rewizji 16
+
+ a/b/ab | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit af1659ddc6c02d7a49c5c82cb158671a92eddb43
+Author: anna <anna@gmail.com>
+Date:   Mon Dec 2 21:03:07 2024 +0100
+
+    Rewizja 15: Brak wiadomości logu dla rewizji 15
+
+ a/a/b/aab     | 3 +++
+ a/aa/b/aaab   | 3 +++
+ a/aaa/b/aaaab | 1 +
+ a/aab/b/aaabb | 1 +
+ a/ab/b/aabb   | 3 +++
+ a/aba/b/aabab | 1 +
+ a/abb/b/aabbb | 1 +
+ a/b/ab        | 1 +
+ a/b/b/abb     | 3 +++
+ a/ba/b/abab   | 3 +++
+ a/baa/b/abaab | 1 +
+ a/bab/b/ababb | 1 +
+ a/bb/b/abbb   | 3 +++
+ a/bba/b/abbab | 1 +
+ a/bbb/b/abbbb | 1 +
+ 15 files changed, 27 insertions(+)
+anna@anna:~/mk1-272395/SP/lab4/l3$ git log --stat | grep -v '^commit ' | grep -v '^Author: ' | grep -v '^Date: '
+
+    Rewizja 21: Brak wiadomości logu dla rewizji 21
+
+ a/bb/b/abbb | 3 ---
+ 1 file changed, 3 deletions(-)
+
+
+    Rewizja 20: Brak wiadomości logu dla rewizji 20
+
+ a/b/ab    | 2 --
+ a/b/b/abb | 3 ---
+ 2 files changed, 5 deletions(-)
+
+
+    Rewizja 18: Brak wiadomości logu dla rewizji 18
+
+ a/baa/dc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+
+    Rewizja 17: Brak wiadomości logu dla rewizji 17
+
+ a/ba/b/abab | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+    Rewizja 16: Brak wiadomości logu dla rewizji 16
+
+ a/b/ab | 1 +
+ 1 file changed, 1 insertion(+)
+
+
+    Rewizja 15: Brak wiadomości logu dla rewizji 15
+
+ a/a/b/aab     | 3 +++
+ a/aa/b/aaab   | 3 +++
+ a/aaa/b/aaaab | 1 +
+ a/aab/b/aaabb | 1 +
+ a/ab/b/aabb   | 3 +++
+ a/aba/b/aabab | 1 +
+ a/abb/b/aabbb | 1 +
+ a/b/ab        | 1 +
+ a/b/b/abb     | 3 +++
+ a/ba/b/abab   | 3 +++
+ a/baa/b/abaab | 1 +
+ a/bab/b/ababb | 1 +
+ a/bb/b/abbb   | 3 +++
+ a/bba/b/abbab | 1 +
+ a/bbb/b/abbbb | 1 +
+ 15 files changed, 27 insertions(+)
+anna@anna:~/mk1-272395/SP/lab4/l3$ tmux capture-pane -p -S'-' -E'-' >> zadanie2_.txt
+

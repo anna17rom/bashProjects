@@ -1,0 +1,1714 @@
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$#Utworzenie własnej kopii roboczej projektu app_1_trunk
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ svn checkout  https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/  app_1_trunk
+A    app_1_trunk/s272374_podprogram.c
+A    app_1_trunk/README
+A    app_1_trunk/main.c
+A    app_1_trunk/makefile
+A    app_1_trunk/program.h
+A    app_1_trunk/s272375_podprogram.c
+A    app_1_trunk/s272392_podprogram.c
+A    app_1_trunk/s272389_podprogram.c
+A    app_1_trunk/s272402_podprogram.c
+A    app_1_trunk/s272370_podprogram.c
+A    app_1_trunk/s272383_podprogram.c
+A    app_1_trunk/s272379_podprogram.c
+A    app_1_trunk/s272355_podprogram.c
+A    app_1_trunk/s272388_podprogram.c
+A    app_1_trunk/s272354_podprogram.c
+A    app_1_trunk/s272369_podprogram.c
+A    app_1_trunk/s272385_podprogram.c
+A    app_1_trunk/s272397_podprogram.c
+A    app_1_trunk/program_usage.c
+A    app_1_trunk/s0_podprogram.c
+A    app_1_trunk/s999_podprogram.c
+ U   app_1_trunk
+Checked out revision 150.
+anna@anna:#Utworzenie własnej gałęzi w ^/app_1/branches
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ svn copy https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/  https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395 -m "Utworzenie gałęzi dla studenta 272395"
+Committing transaction...
+Committed revision 151.
+anna@anna:#Zapisywanie
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie3.txt
+anna@anna:#Przełączenie się na swoją gałąź
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ svn switch https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395 app_1_trunk
+At revision 151.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ cd app_1_trunk
+anna@anna:# Dodawanie własnego pliku do projektu
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn add s272395_podprogram.c
+A         s272395_podprogram.c
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn status
+M       README
+M       main.c
+M       makefile
+M       program.h
+A       s272395_podprogram.c
+anna@anna:#Dodanie podprogramu i zmiana plików README,main.c,makefile,program.h
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn commit -m "Dodanie podprogramu studenta 272395"
+Sending        README
+Sending        main.c
+Sending        makefile
+Sending        program.h
+Adding         s272395_podprogram.c
+Transmitting file data .....done
+Committing transaction...
+Committed revision 152.
+anna@anna:#Zawartość pliku s272395_podprogram.c
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ cat s272395_podprogram.c
+#include "program.h"
+
+void s272395_podprogram()
+{
+    printf("Student nr indeksu: 272395\n");
+    printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
+
+    int x;
+    printf("Podaj liczbę x: ");
+    scanf("%d", &x);
+
+    printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
+}
+anna@anna:#Zapisywanie
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie3.txt
+anna@anna:#Synchronizacja swojej gałęzi z trunk-iem
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn merge https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/
+svn: E195020: Cannot merge into mixed-revision working copy [151:152]; try updating first
+anna@anna:#Aktualizacja kopii roboczej
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn update
+Updating '.':
+At revision 152.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn merge https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/
+--- Recording mergeinfo for merge of r151 through r152 into '.':
+ U   .
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn status
+ M      .
+anna@anna:#Wykonanie reintegracji
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn merge --reintegrate https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395
+--- Merging differences between repository URLs into '.':
+U    README
+U    main.c
+U    makefile
+U    program.h
+A    s272395_podprogram.c
+--- Recording mergeinfo for merge between repository URLs into '.':
+ U   .
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn status
+ M      .
+M       README
+M       main.c
+M       makefile
+M       program.h
+A  +    s272395_podprogram.c
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn commit -m "Reintegracja"
+Sending        .
+Sending        README
+Sending        main.c
+Sending        makefile
+Sending        program.h
+Adding         s272395_podprogram.c
+Transmitting file data ....done
+Committing transaction...
+Committed revision 153.
+anna@anna:#Usunięcie gałęzi po reintegracji
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn delete https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395 -m "Usunięcie gałęzi studenta 272395 po reintegracji"
+Committing transaction...
+Committed revision 154.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ cd ..
+anna@anna:#Utworzenie tag-a z poprawną wersją projektu zawierającą własny podprogram.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ svn copy https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/  https://repo.cs.pwr.edu.pl/p-2/app_1/tags/v_272395 -m "Utworzenie tagu v_272395"
+Committing transaction...
+Committed revision 155.
+anna@anna:#Zapisywanie
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie3_1.txt
+anna@anna:#Kompilacja projektu
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ cd app_1_trunk
+make clean
+make
+rm *.o program
+rm: cannot remove '*.o': No such file or directory
+rm: cannot remove 'program': No such file or directory
+make: [makefile:60: clean] Error 1 (ignored)
+cc    -c -o main.o main.c
+cc    -c -o program_usage.o program_usage.c
+cc    -c -o s0_podprogram.o s0_podprogram.c
+cc    -c -o s999_podprogram.o s999_podprogram.c
+cc    -c -o s272397_podprogram.o s272397_podprogram.c
+cc    -c -o s272354_podprogram.o s272354_podprogram.c
+cc    -c -o s272385_podprogram.o s272385_podprogram.c
+cc    -c -o s272369_podprogram.o s272369_podprogram.c
+cc    -c -o s272355_podprogram.o s272355_podprogram.c
+cc    -c -o s272388_podprogram.o s272388_podprogram.c
+cc    -c -o s272379_podprogram.o s272379_podprogram.c
+cc    -c -o s272383_podprogram.o s272383_podprogram.c
+cc    -c -o s272370_podprogram.o s272370_podprogram.c
+cc    -c -o s272402_podprogram.o s272402_podprogram.c
+cc    -c -o s272389_podprogram.o s272389_podprogram.c
+cc    -c -o s272392_podprogram.o s272392_podprogram.c
+cc    -c -o s272374_podprogram.o s272374_podprogram.c
+cc    -c -o s272395_podprogram.o s272395_podprogram.c
+cc -o program main.o program_usage.o s0_podprogram.o s999_podprogram.o s272397_podprogram.o s272354_podprogram.o s272385_podprogram.o s272369_podprogram.o s272355_podprogram.o s272388_podprogram.o s272379_podprogram.o s272383_podprogram.o s272370_podprogram.o s272402_podprogram.o s272389_podprogram.o s272392_podprogram.o s272374_podprogram.o s272395_podprogram.o
+anna@anna:#Uruchomienie programu z kopii roboczej trunk
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ ./program 272395
+Student nr indeksu: 272395
+Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22
+Podaj liczbę x: 34
+Liczba x pomnożona przez 22 wynosi: 748
+anna@anna:#Zapisywanie
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie3.txt
+anna@anna:#Sprawdzenie spójności między trunk a tagiem
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn diff https://repo.cs.pwr.edu.pl/p-2/app_1/trunk https://repo.cs.pwr.edu.pl/p-2/app_1/tags/v_272395
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ cd ..
+anna@anna:#Stworzenie kopii roboczej tagów
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ svn checkout  https://repo.cs.pwr.edu.pl/p-2/app_1/tags/v_272395 app_1_tag
+A    app_1_tag/README
+A    app_1_tag/main.c
+A    app_1_tag/makefile
+A    app_1_tag/program.h
+A    app_1_tag/s272395_podprogram.c
+A    app_1_tag/s272374_podprogram.c
+A    app_1_tag/s272375_podprogram.c
+A    app_1_tag/s272392_podprogram.c
+A    app_1_tag/s272389_podprogram.c
+A    app_1_tag/s272402_podprogram.c
+A    app_1_tag/s272370_podprogram.c
+A    app_1_tag/s272383_podprogram.c
+A    app_1_tag/s272379_podprogram.c
+A    app_1_tag/s272355_podprogram.c
+A    app_1_tag/s272388_podprogram.c
+A    app_1_tag/s272354_podprogram.c
+A    app_1_tag/s272369_podprogram.c
+A    app_1_tag/s272385_podprogram.c
+A    app_1_tag/s272397_podprogram.c
+A    app_1_tag/program_usage.c
+A    app_1_tag/s0_podprogram.c
+A    app_1_tag/s999_podprogram.c
+ U   app_1_tag
+Checked out revision 155.
+anna@anna:#Kompilacja z taga podprogramu
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ cd app_1_tag
+make clean
+make
+rm *.o program
+rm: cannot remove '*.o': No such file or directory
+rm: cannot remove 'program': No such file or directory
+make: [makefile:60: clean] Error 1 (ignored)
+cc    -c -o main.o main.c
+cc    -c -o program_usage.o program_usage.c
+cc    -c -o s0_podprogram.o s0_podprogram.c
+cc    -c -o s999_podprogram.o s999_podprogram.c
+cc    -c -o s272397_podprogram.o s272397_podprogram.c
+cc    -c -o s272354_podprogram.o s272354_podprogram.c
+cc    -c -o s272385_podprogram.o s272385_podprogram.c
+cc    -c -o s272369_podprogram.o s272369_podprogram.c
+cc    -c -o s272355_podprogram.o s272355_podprogram.c
+cc    -c -o s272388_podprogram.o s272388_podprogram.c
+cc    -c -o s272379_podprogram.o s272379_podprogram.c
+cc    -c -o s272383_podprogram.o s272383_podprogram.c
+cc    -c -o s272370_podprogram.o s272370_podprogram.c
+cc    -c -o s272402_podprogram.o s272402_podprogram.c
+cc    -c -o s272389_podprogram.o s272389_podprogram.c
+cc    -c -o s272392_podprogram.o s272392_podprogram.c
+cc    -c -o s272374_podprogram.o s272374_podprogram.c
+cc    -c -o s272395_podprogram.o s272395_podprogram.c
+cc -o program main.o program_usage.o s0_podprogram.o s999_podprogram.o s272397_podprogram.o s272354_podprogram.o s272385_podprogram.o s272369_podprogram.o s272355_podprogram.o s272388_podprogram.o s272379
+_podprogram.o s272383_podprogram.o s272370_podprogram.o s272402_podprogram.o s272389_podprogram.o s272392_podprogram.o s272374_podprogram.o s272395_podprogram.o
+anna@anna:#Uruchomienie podprogramu z kopii roboczej taga
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_tag$ ./program 272395
+Student nr indeksu: 272395
+Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22
+Podaj liczbę x: 34
+Liczba x pomnożona przez 22 wynosi: 748
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_tag$ svn log s123456_podprogram.c
+svn: E155010: The node '/home/anna/mk1-272395/SP/lab3/zadanie1/app_1_tag/s123456_podprogram.c' was not found.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_tag$ cd ..
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ cd app_1_trunk
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn log s272395_podprogram.c
+------------------------------------------------------------------------
+r153 | 272395 | 2024-11-15 09:01:25 +0100 (pią, 15 lis 2024) | 1 line
+
+Reintegracja
+------------------------------------------------------------------------
+r152 | 272395 | 2024-11-15 08:21:01 +0100 (pią, 15 lis 2024) | 1 line
+
+Dodanie podprogramu studenta 272395
+------------------------------------------------------------------------
+anna@anna:#Ustawienie kodowania UTF-8 w trunk i tags
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_tag$ svn propset svn:mime-type 'text/plain;charset=utf-8' s272395_podprogram.c
+property 'svn:mime-type' set on 's272395_podprogram.c'
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_tag$ svn commit -m "Ustawienie właściwości svn:mime-type w trunk dla s272395_podprogram.c"
+Sending        s272395_podprogram.c
+Committing transaction...
+Committed revision 167.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_tag$ cd ..
+anna@anna:~/mk1-272395/SP/lab3/zadanie1$ cd app_1_trunk
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn propset svn:mime-type 'text/plain;charset=utf-8' s272395_podprogram.c
+property 'svn:mime-type' set on 's272395_podprogram.c'
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn commit -m "Ustawienie właściwości svn:mime-type w trunk dla s272395_podprogram.c"
+Sending        s272395_podprogram.c
+Committing transaction...
+Committed revision 168.
+anna@anna:#Zapisywanie
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ tmux capture-pane -p -S'-' -E'-' >> sprawozdanie3.txt
+anna@anna:#Pokazanie rewizji zawierających zmiany scalone z trunk do własnej gałęzi
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn mergeinfo --show-revs merged https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395@153 https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/
+r151
+r152
+anna@anna: #Porównanie zawartość plików w rewizji 151 (przed zmianami) i rewizji 152 (po zmianach) na gałęzi branches_s272395.
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn diff -c 152 https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395@153
+Index: README
+===================================================================
+--- README	(revision 151)
++++ README	(revision 152)
+@@ -23,6 +23,7 @@
+     272389 - drukuje na wyjściu standardowym swój kod źródłowy
+     272392 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 88.
+     272374 - wczytuje liczbę i drukuje jej sześcian.
++    272395 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 22.
+ Dodatkowo, po zreintegrowaniu swojej gałęzi do trunk-a student ma utworzyć 
+ w katalogu: 
+ 
+Index: main.c
+===================================================================
+--- main.c	(revision 151)
++++ main.c	(revision 152)
+@@ -59,6 +59,9 @@
+       case 272374:
+                 s272374_podprogram() ; // podprogram studenta o numerze indeksu 272374
+                 break;
++      case 272395:
++		s272395_podprogram() ; // podprogram studenta o numerze indeksu 272395 
++		break;
+     default:
+ 	printf("\nStudent o numerze indeksu %d nie wykonał jeszcze zadania\n\n",idx); 
+       break;
+Index: makefile
+===================================================================
+--- makefile	(revision 151)
++++ makefile	(revision 152)
+@@ -13,7 +13,8 @@
+ 	  s272402_podprogram.o \
+ 	  s272389_podprogram.o \
+ 	  s272392_podprogram.o \
+-	  s272374_podprogram.o
++	  s272374_podprogram.o \
++	  s272395_podprogram.o
+ 
+ program : $(objects)
+ 	cc -o program $(objects)
+@@ -51,6 +52,8 @@
+ 
+ s272374_podprogram.o : program.h
+ 
++s272395_podprogram.o : program.h
++
+ .PHONY : clean
+ 
+ clean : 
+Index: program.h
+===================================================================
+--- program.h	(revision 151)
++++ program.h	(revision 152)
+@@ -27,3 +27,4 @@
+ void s272389_podprogram(); /* funkcja studenta 272389 */ 
+ void s272392_podprogram(); /* funkcja studenta 272392 */ 
+ void s272374_podprogram(); /* funkcja studenta 272374 */
++void s272395_podprogram(); /* funkcja studenta 272395 */
+Index: s272395_podprogram.c
+===================================================================
+--- s272395_podprogram.c	(nonexistent)
++++ s272395_podprogram.c	(revision 152)
+@@ -0,0 +1,14 @@
++#include "program.h"
++
++void s272395_podprogram()
++{
++    printf("Student nr indeksu: 272395\n");
++    printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
++
++    int x;
++    printf("Podaj liczbę x: ");
++    scanf("%d", &x);
++
++    printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
++}
++
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn log https://repo.cs.pwr.edu.pl/p-2/app_1/tags/v_272395/s272395_podprogram.c
+------------------------------------------------------------------------
+r167 | 272395 | 2024-11-15 20:16:08 +0100 (pią, 15 lis 2024) | 1 line
+
+Ustawienie właściwości svn:mime-type w trunk dla s272395_podprogram.c
+------------------------------------------------------------------------
+r155 | 272395 | 2024-11-15 09:08:26 +0100 (pią, 15 lis 2024) | 1 line
+
+Utworzenie tagu v_272395
+------------------------------------------------------------------------
+r153 | 272395 | 2024-11-15 09:01:25 +0100 (pią, 15 lis 2024) | 1 line
+
+Reintegracja
+------------------------------------------------------------------------
+r152 | 272395 | 2024-11-15 08:21:01 +0100 (pią, 15 lis 2024) | 1 line
+
+Dodanie podprogramu studenta 272395
+------------------------------------------------------------------------
+svn log https://repo.cs.pwr.edu.pl/p-2/app_1/branches/branches_s272395@153
+------------------------------------------------------------------------
+r152 | 272395 | 2024-11-15 08:21:01 +0100 (pią, 15 lis 2024) | 1 line
+
+Dodanie podprogramu studenta 272395
+------------------------------------------------------------------------
+r151 | 272395 | 2024-11-15 08:02:16 +0100 (pią, 15 lis 2024) | 1 line
+
+Utworzenie gałęzi dla studenta 272395
+------------------------------------------------------------------------
+r150 | 272374 | 2024-11-14 23:33:34 +0100 (czw, 14 lis 2024) | 1 line
+
+Dodanie property svn:mime-type na moje pliki
+------------------------------------------------------------------------
+r147 | 272374 | 2024-11-14 23:14:02 +0100 (czw, 14 lis 2024) | 1 line
+
+Branch 272374 merged into trunk
+------------------------------------------------------------------------
+r142 | 272375 | 2024-11-14 21:16:34 +0100 (czw, 14 lis 2024) | 1 line
+
+Reintegrated branch 272375 into trunk
+------------------------------------------------------------------------
+r136 | 272392 | 2024-11-14 20:53:15 +0100 (czw, 14 lis 2024) | 1 line
+
+dodanie zmian - 272392
+------------------------------------------------------------------------
+r130 | 272389 | 2024-11-14 17:00:26 +0100 (czw, 14 lis 2024) | 1 line
+
+merge branch 272389
+------------------------------------------------------------------------
+r123 | 272402 | 2024-11-13 21:56:41 +0100 (śro, 13 lis 2024) | 1 line
+
+Scalenie zmian z gałęzi 272402 do trunka
+------------------------------------------------------------------------
+r117 | 272370 | 2024-11-13 20:24:27 +0100 (śro, 13 lis 2024) | 1 line
+
+reintegracja branch 272370
+------------------------------------------------------------------------
+r113 | 272383 | 2024-11-12 22:31:20 +0100 (wto, 12 lis 2024) | 1 line
+
+trunk 272383
+------------------------------------------------------------------------
+r109 | 272383 | 2024-11-12 22:19:36 +0100 (wto, 12 lis 2024) | 1 line
+
+reintegracja 272383 (ponownie)
+------------------------------------------------------------------------
+r102 | 272383 | 2024-11-12 21:54:46 +0100 (wto, 12 lis 2024) | 1 line
+
+reintegracja gałęzi 272383 do trunk
+------------------------------------------------------------------------
+r98 | 272383 | 2024-11-12 21:20:53 +0100 (wto, 12 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r97 | 272383 | 2024-11-12 21:11:58 +0100 (wto, 12 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r93 | 272383 | 2024-11-12 20:51:20 +0100 (wto, 12 lis 2024) | 1 line
+
+reintegracja gałęzi 272383 do trunk
+------------------------------------------------------------------------
+r87 | 272379 | 2024-11-11 23:21:00 +0100 (pon, 11 lis 2024) | 1 line
+
+merged 272379 z trunk
+------------------------------------------------------------------------
+r86 | 272379 | 2024-11-11 23:12:59 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r85 | 272379 | 2024-11-11 23:12:02 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r83 | 272379 | 2024-11-11 23:06:13 +0100 (pon, 11 lis 2024) | 1 line
+
+Rozwiązanie konfliktu tekstowego w pliku s272379_podprogram.c
+------------------------------------------------------------------------
+r82 | 272379 | 2024-11-11 23:05:03 +0100 (pon, 11 lis 2024) | 1 line
+
+Rozwiązanie konfliktu tekstowego w pliku s272379_podprogram.c
+------------------------------------------------------------------------
+r81 | 272379 | 2024-11-11 23:04:07 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r80 | 272379 | 2024-11-11 23:01:36 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r79 | 272379 | 2024-11-11 23:01:15 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r78 | 272379 | 2024-11-11 22:57:51 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r77 | 272379 | 2024-11-11 22:56:32 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r76 | 272379 | 2024-11-11 22:50:53 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r74 | 272379 | 2024-11-11 22:45:48 +0100 (pon, 11 lis 2024) | 1 line
+
+ 
+------------------------------------------------------------------------
+r73 | 272379 | 2024-11-11 22:43:52 +0100 (pon, 11 lis 2024) | 1 line
+
+ 
+------------------------------------------------------------------------
+r72 | 272379 | 2024-11-11 22:42:36 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r71 | 272379 | 2024-11-11 22:41:43 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r70 | 272379 | 2024-11-11 22:40:41 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r69 | 272379 | 2024-11-11 22:38:23 +0100 (pon, 11 lis 2024) | 1 line
+
+synchronizacja 272379 z trunk
+------------------------------------------------------------------------
+r68 | 272379 | 2024-11-11 22:37:10 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r67 | 272379 | 2024-11-11 22:34:18 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r66 | 272379 | 2024-11-11 22:31:21 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r65 | 272379 | 2024-11-11 22:29:34 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r64 | 272379 | 2024-11-11 22:19:30 +0100 (pon, 11 lis 2024) | 1 line
+
+
+------------------------------------------------------------------------
+r58 | 272355 | 2024-11-08 23:03:11 +0100 (pią, 08 lis 2024) | 1 line
+
+272355 integruje swoją gałąź z trunk
+------------------------------------------------------------------------
+r52 | 272388 | 2024-11-08 17:55:50 +0100 (pią, 08 lis 2024) | 1 line
+
+merge, tag 272388
+------------------------------------------------------------------------
+r49 | 272369 | 2024-11-07 18:20:37 +0100 (czw, 07 lis 2024) | 1 line
+
+Changed propset.
+------------------------------------------------------------------------
+r46 | 272369 | 2024-11-07 18:09:29 +0100 (czw, 07 lis 2024) | 1 line
+
+Zmergowano prace studenta 272369 do trunk.
+------------------------------------------------------------------------
+r42 | 272354 | 2024-11-05 22:40:50 +0100 (wto, 05 lis 2024) | 1 line
+
+encoding added
+------------------------------------------------------------------------
+r38 | 272385 | 2024-11-05 22:16:57 +0100 (wto, 05 lis 2024) | 1 line
+
+Merge 272385 do trunk.
+------------------------------------------------------------------------
+r33 | 272354 | 2024-11-05 21:41:29 +0100 (wto, 05 lis 2024) | 1 line
+
+encoding set
+------------------------------------------------------------------------
+r32 | 272354 | 2024-11-05 21:40:21 +0100 (wto, 05 lis 2024) | 1 line
+
+encoding set
+------------------------------------------------------------------------
+r29 | 272354 | 2024-11-05 21:06:45 +0100 (wto, 05 lis 2024) | 1 line
+
+merged 272354 z trunk
+------------------------------------------------------------------------
+r26 | 272354 | 2024-11-05 20:58:36 +0100 (wto, 05 lis 2024) | 1 line
+
+reintegracja 272354 z trunk
+------------------------------------------------------------------------
+r17 | 272397 | 2024-11-04 23:38:26 +0100 (pon, 04 lis 2024) | 1 line
+
+merge 272397 into trunk
+------------------------------------------------------------------------
+r13 | mk1 | 2024-10-29 13:45:35 +0100 (wto, 29 paź 2024) | 2 lines
+
+wykonano: `svn propset svn:mime-type 'text/plain;charset=utf-8' $(find app_1/ -type f )`
+
+------------------------------------------------------------------------
+r12 | admin | 2020-11-12 10:52:01 +0100 (czw, 12 lis 2020) | 2 lines
+
+Poprawione kodowanie README i względny adres katalogu z tagami.
+
+------------------------------------------------------------------------
+r10 | 999 | 2016-10-24 13:55:29 +0200 (pon, 24 paź 2016) | 3 lines
+
+999 zreintegrował swoją gałąź z trunk-iem 
+
+
+------------------------------------------------------------------------
+r7 | admin | 2016-10-24 13:44:15 +0200 (pon, 24 paź 2016) | 3 lines
+
+Dodatkowe wyjaśnienia w pliku README o tworzeniu tag-ów
+
+
+------------------------------------------------------------------------
+r3 | 999 | 2016-10-24 13:04:10 +0200 (pon, 24 paź 2016) | 2 lines
+
+dodano plik README w trunk
+
+------------------------------------------------------------------------
+r1 | admin | 2016-10-17 14:28:36 +0200 (pon, 17 paź 2016) | 3 lines
+
+początkowa wersja projektu.
+
+
+------------------------------------------------------------------------
+anna@anna:Zobaczenie zmiany które wniosłam do projektu linijka po linijce
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ svn blame https://repo.cs.pwr.edu.pl/p-2/app_1/tags/v_272395/s272395_podprogram.c
+   152     272395 #include "program.h"
+   152     272395 
+   152     272395 void s272395_podprogram()
+   152     272395 {
+   152     272395     printf("Student nr indeksu: 272395\n");
+   152     272395     printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
+   152     272395 
+   152     272395     int x;
+   152     272395     printf("Podaj liczbę x: ");
+   152     272395     scanf("%d", &x);
+   152     272395 
+   152     272395     printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
+   152     272395 }
+   152     272395 
+anna@anna:#Zobaczenie zmiany które wniosłam do projektu linijka po linijce w całym projekcie 
+anna@anna:~/mk1-272395/SP/lab3/zadanie1/app_1_trunk$ for file in $(svn ls https://repo.cs.pwr.edu.pl/p-2/app_1/trunk); do
+    echo "Plik: $file"
+    svn blame https://repo.cs.pwr.edu.pl/p-2/app_1/trunk/$file | grep '^[ ]*[0-9]\+[ ]\+272395'
+    echo "----------------------------------------"
+done
+Plik: README
+   153     272395     272395 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 22.
+----------------------------------------
+Plik: main.c
+----------------------------------------
+Plik: makefile
+   153     272395 	  s272374_podprogram.o \
+   153     272395 	  s272395_podprogram.o
+   153     272395 s272395_podprogram.o : program.h
+   153     272395 
+----------------------------------------
+Plik: program.h
+   153     272395 void s272395_podprogram(); /* funkcja studenta 272395 */
+----------------------------------------
+Plik: program_usage.c
+----------------------------------------
+Plik: s0_podprogram.c
+----------------------------------------
+Plik: s272354_podprogram.c
+----------------------------------------
+Plik: s272355_podprogram.c
+----------------------------------------
+Plik: s272362_podprogram.c
+----------------------------------------
+Plik: s272369_podprogram.c
+----------------------------------------
+Plik: s272370_podprogram.c
+----------------------------------------
+Plik: s272374_podprogram.c
+----------------------------------------
+Plik: s272375_podprogram.c
+----------------------------------------
+Plik: s272379_podprogram.c
+----------------------------------------
+Plik: s272383_podprogram.c
+----------------------------------------
+Plik: s272385_podprogram.c
+----------------------------------------
+Plik: s272388_podprogram.c
+----------------------------------------
+Plik: s272389_podprogram.c
+----------------------------------------
+Plik: s272392_podprogram.c
+----------------------------------------
+Plik: s272395_podprogram.c
+   152     272395 #include "program.h"
+   152     272395 
+   152     272395 void s272395_podprogram()
+   152     272395 {
+   152     272395     printf("Student nr indeksu: 272395\n");
+   152     272395     printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
+   152     272395 
+   152     272395     int x;
+   152     272395     printf("Podaj liczbę x: ");
+   152     272395     scanf("%d", &x);
+   152     272395 
+   152     272395     printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
+   152     272395 }
+   152     272395 
+----------------------------------------
+Plik: s272397_podprogram.c
+----------------------------------------
+Plik: s272402_podprogram.c
+----------------------------------------
+Plik: s999_podprogram.c
+----------------------------------------
+anna@anna:#Przeglądanie działania sztucznego studenta
+anna@anna:~/mk1-272395/SP/lab3$ svn log https://repo.cs.pwr.edu.pl/p-2/app_1/branches/999
+------------------------------------------------------------------------
+r13 | mk1 | 2024-10-29 13:45:35 +0100 (wto, 29 paź 2024) | 2 lines
+
+wykonano: `svn propset svn:mime-type 'text/plain;charset=utf-8' $(find app_1/ -type f )`
+
+------------------------------------------------------------------------
+r9 | 999 | 2016-10-24 13:50:09 +0200 (pon, 24 paź 2016) | 2 lines
+
+999 wprowadza opis swojego podprogramu do README - ostateczna wersja jego gałęzi 
+
+------------------------------------------------------------------------
+r8 | 999 | 2016-10-24 13:46:37 +0200 (pon, 24 paź 2016) | 2 lines
+
+999 ponownie synchronizuje swoją gałąź z trunk 
+
+------------------------------------------------------------------------
+r5 | 999 | 2016-10-24 13:37:15 +0200 (pon, 24 paź 2016) | 3 lines
+
+999 zaimplementował swoją procedurę
+
+
+------------------------------------------------------------------------
+r4 | 999 | 2016-10-24 13:21:53 +0200 (pon, 24 paź 2016) | 3 lines
+
+999 synchronizuje swoją gałąź z trunk
+
+
+------------------------------------------------------------------------
+r2 | 999 | 2016-10-17 16:01:19 +0200 (pon, 17 paź 2016) | 1 line
+
+student 999 tworzy własną gałąź https://156.17.7.16/svn/lab/piaskownica/app_1/branches/999
+------------------------------------------------------------------------
+r1 | admin | 2016-10-17 14:28:36 +0200 (pon, 17 paź 2016) | 3 lines
+
+początkowa wersja projektu.
+
+
+------------------------------------------------------------------------
+anna@anna:~/mk1-272395/SP/lab3$ svn diff https://repo.cs.pwr.edu.pl/p-2/app_1/trunk https://repo.cs.pwr.edu.pl/p-2/app_1/branches/999
+Index: s272370_podprogram.c
+===================================================================
+--- s272370_podprogram.c	(.../trunk)	(revision 240)
++++ s272370_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272370_podprogram()
+-{
+-  printf("Student nr indeksu: 272370\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 17\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 6 wynosi: %d\n", x * 17);
+-}
+\ No newline at end of file
+
+Property changes on: s272370_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272360_podprogram.c
+===================================================================
+--- s272360_podprogram.c	(.../trunk)	(revision 240)
++++ s272360_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272360_podprogram()
+-{
+-  printf("Student nr indeksu: 272360\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 360\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 360 wynosi: %d\n", x * 360);
+-}
+Index: s272380_podprogram.c
+===================================================================
+--- s272380_podprogram.c	(.../trunk)	(revision 240)
++++ s272380_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,24 +0,0 @@
+-#include "program.h"
+-
+-void s272380_podprogram()
+-{
+-    printf("Konrad Czubiński, 272380\n");
+-    printf("Program wczytuje napis i wypisuje jego odwrotność.\n");
+-
+-    const int SIZE = 1000; 
+-    char str[SIZE];
+-    for (int i=0; i < SIZE; i++)
+-        str[i] = 0;
+-
+-    printf("Podaj napis: ");
+-    scanf("%[^\n]s", str);
+-    printf("Odwrotność tego napisu to: ");
+-
+-    for (int i=SIZE-1; i >= 0; i--)
+-    {
+-        char c = str[i];
+-        if (c != 0)
+-            printf("%c", c);
+-    }
+-    printf("\n");
+-}
+\ No newline at end of file
+
+Property changes on: s272380_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s274037_podprogram.c
+===================================================================
+--- s274037_podprogram.c	(.../trunk)	(revision 240)
++++ s274037_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s274037_podprogram()
+-{
+-  printf("Student nr indeksu: 274037\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 20\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 20 wynosi: %d\n", x * 20);
+-}
+-
+
+Property changes on: s274037_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272362_podprogram.c
+===================================================================
+--- s272362_podprogram.c	(.../trunk)	(revision 240)
++++ s272362_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,12 +0,0 @@
+-#include "program.h"
+-
+-void s272362_podprogram() {
+-  printf("Student nr indeksu: 272362\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 41\n");
+-
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 41 wynosi: %d\n", x * 41);
+-}
+
+Property changes on: s272362_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272382_podprogram.c
+===================================================================
+--- s272382_podprogram.c	(.../trunk)	(revision 240)
++++ s272382_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272382_podprogram()
+-{
+-
+-    printf("Student nr indeksu: 272382\n");
+-    printf("Program wczytuje liczbę całkowitą i drukuje jej czwartą potęgę\n");
+-    int x;
+-    printf("Podaj liczbę x: ");
+-    scanf("%d", &x);
+-
+-    printf("Liczba x do czwartej potęgi wynosi: %d\n", x * x * x * x);
+-}
+\ No newline at end of file
+
+Property changes on: s272382_podprogram.c
+___________________________________________________________________
+Deleted: svn:executable
+## -1 +0,0 ##
+-*
+\ No newline at end of property
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272383_podprogram.c
+===================================================================
+--- s272383_podprogram.c	(.../trunk)	(revision 240)
++++ s272383_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272383_podprogram()
+-{
+-
+-  printf("Student nr indeksu: 272383\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 13\n");
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 13 wynosi: %d\n", x*13);
+-
+-}
+
+Property changes on: s272383_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272392_podprogram.c
+===================================================================
+--- s272392_podprogram.c	(.../trunk)	(revision 240)
++++ s272392_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272392_podprogram()
+-{
+-
+-  printf("Student nr indeksu: 272392\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 88\n");
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Wynik mnożenia liczb x i 88: %d\n", x*88);
+-
+-}
+\ No newline at end of file
+
+Property changes on: s272392_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272375_podprogram.c
+===================================================================
+--- s272375_podprogram.c	(.../trunk)	(revision 240)
++++ s272375_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272375_podprogram()
+-{
+-  printf("Student nr indeksu: 272375\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 14\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 14 wynosi: %d\n", x * 14);
+-}
+
+Property changes on: s272375_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272374_podprogram.c
+===================================================================
+--- s272374_podprogram.c	(.../trunk)	(revision 240)
++++ s272374_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272374_podprogram()
+-{
+-
+-  printf("Student nr indeksu: 272374\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje jej sześcian\n");
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x do trzeciej potęgi wynosi: %d\n", x*x*x);
+-
+-}
+
+Property changes on: s272374_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272355_podprogram.c
+===================================================================
+--- s272355_podprogram.c	(.../trunk)	(revision 240)
++++ s272355_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272355_podprogram()
+-{
+-  printf("Student nr indeksu: 272355\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 11\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 11 wynosi: %d\n", x * 11);
+-}
+-
+
+Property changes on: s272355_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272354_podprogram.c
+===================================================================
+--- s272354_podprogram.c	(.../trunk)	(revision 240)
++++ s272354_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272354_podprogram()
+-{
+-  printf("Student nr indeksu: 272354\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 7\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 7 wynosi: %d\n", x * 7);
+-}
+-
+
+Property changes on: s272354_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272385_podprogram.c
+===================================================================
+--- s272385_podprogram.c	(.../trunk)	(revision 240)
++++ s272385_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272385_podprogram()
+-{
+-  printf("Student nr indeksu: 272385\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 8\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 8 wynosi: %d\n", x * 8);
+-}
+
+Property changes on: s272385_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272395_podprogram.c
+===================================================================
+--- s272395_podprogram.c	(.../trunk)	(revision 240)
++++ s272395_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272395_podprogram()
+-{
+-    printf("Student nr indeksu: 272395\n");
+-    printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 22\n");
+-
+-    int x;
+-    printf("Podaj liczbę x: ");
+-    scanf("%d", &x);
+-
+-    printf("Liczba x pomnożona przez 22 wynosi: %d\n", x * 22);
+-}
+-
+
+Property changes on: s272395_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272402_podprogram.c
+===================================================================
+--- s272402_podprogram.c	(.../trunk)	(revision 240)
++++ s272402_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272402_podprogram()
+-{
+-  printf("Student nr indeksu: 272402\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 1508\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 1508 wynosi: %d\n", x * 1508);
+-}
+-
+
+Property changes on: s272402_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272397_podprogram.c
+===================================================================
+--- s272397_podprogram.c	(.../trunk)	(revision 240)
++++ s272397_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272397_podprogram()
+-{
+-  printf("Student nr indeksu: 272397\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 6\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 6 wynosi: %d\n", x * 6);
+-}
+-
+
+Property changes on: s272397_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272369_podprogram.c
+===================================================================
+--- s272369_podprogram.c	(.../trunk)	(revision 240)
++++ s272369_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272369_podprogram()
+-{
+-  printf("Student nr indeksu: 272369\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 9\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 9 wynosi: %d\n", x * 9);
+-}
+
+Property changes on: s272369_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272359_podprogram.c
+===================================================================
+--- s272359_podprogram.c	(.../trunk)	(revision 240)
++++ s272359_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272359_podprogram()
+-{
+-  printf("Student nr indeksu: 272359\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 359\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 359 wynosi: %d\n", x * 359);
+-}
+
+Property changes on: s272359_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272358_podprogram.c
+===================================================================
+--- s272358_podprogram.c	(.../trunk)	(revision 240)
++++ s272358_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272358_podprogram()
+-{
+-	printf("Student nr indeksu: 272358\n");
+-	printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 100\n");
+-	
+-	int x;
+-	printf("Podaj liczbę x: ");
+-	scanf("%d", &x);
+-
+-	printf("Liczba x pomnożona przez 100 wynosi: %d\n", x * 100);
+-}
+
+Property changes on: s272358_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272378_podprogram.c
+===================================================================
+--- s272378_podprogram.c	(.../trunk)	(revision 240)
++++ s272378_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s272378_podprogram()
+-{
+-  printf("Student nr indeksu: 272378\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez pi\n");
+-  
+-  float x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%f", &x);
+-
+-  printf("Liczba x pomnożona przez pi wynosi: %f\n", x * 3.1415926535897932384);
+-}
+-
+
+Property changes on: s272378_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272379_podprogram.c
+===================================================================
+--- s272379_podprogram.c	(.../trunk)	(revision 240)
++++ s272379_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272379_podprogram()
+-{
+-	printf("Student nr indeksu: 272379\n");
+-	printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 12\n");
+-
+-	int x;
+-	printf("Podaj liczbę x: ");
+-	scanf("%d", &x);
+-
+-	printf("Liczba x pomnożona przez 12 wynosi: %d\n", x * 12);
+-}
+
+Property changes on: s272379_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272388_podprogram.c
+===================================================================
+--- s272388_podprogram.c	(.../trunk)	(revision 240)
++++ s272388_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,13 +0,0 @@
+-#include "program.h"
+-
+-void s272388_podprogram()
+-{
+-  printf("Student nr indeksu: 272388\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 10\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 10 wynosi: %d\n", x * 10);
+-}
+
+Property changes on: s272388_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s272389_podprogram.c
+===================================================================
+--- s272389_podprogram.c	(.../trunk)	(revision 240)
++++ s272389_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,33 +0,0 @@
+-#include "program.h"
+-
+-#include <stdio.h>
+-
+-void s272389_podprogram(void) {
+-    // Jacek Poziemski nr indeksu: 272389
+-    // Program drukuje na wyjściu standardowym swój kod źródłowy
+-    const char *src = "#include \"program.h\"\n\n#include <stdio.h>\n\nvoid s272389_podprogram(void) {\n    // Jacek Poziemski nr indeksu: 272389\n    // Program drukuje na wyjściu standardowym swój kod źródłowy\n    const char *src = \"?\";\n\n    char *ch = (char *)src;\n\n    while (*ch != '\\0') {\n        if (*ch == 63) {\n            char *src2 = (char *)src;\n            while (*src2 != '\\0') {\n                switch (*src2) {\n                    case '\\n': printf(\"\\\\n\"); break;\n                    case '\\\\': printf(\"\\\\\\\\\"); break;\n                    case '\\\"': printf(\"\\\\\\\"\"); break;\n                    case '\\0': printf(\"\\\\0\"); break;\n                    default: putchar(*src2); break;\n                }\n\n                src2 += 1;\n            }\n        } else {\n            putchar(*ch);\n        }\n\n        ch += 1;\n    }\n\n    return 0;\n}\n";
+-
+-    char *ch = (char *)src;
+-
+-    while (*ch != '\0') {
+-        if (*ch == 63) {
+-            char *src2 = (char *)src;
+-            while (*src2 != '\0') {
+-                switch (*src2) {
+-                    case '\n': printf("\\n"); break;
+-                    case '\\': printf("\\\\"); break;
+-                    case '\"': printf("\\\""); break;
+-                    case '\0': printf("\\0"); break;
+-                    default: putchar(*src2); break;
+-                }
+-
+-                src2 += 1;
+-            }
+-        } else {
+-            putchar(*ch);
+-        }
+-
+-        ch += 1;
+-    }
+-}
+-
+
+Property changes on: s272389_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: s276588_podprogram.c
+===================================================================
+--- s276588_podprogram.c	(.../trunk)	(revision 240)
++++ s276588_podprogram.c	(.../branches/999)	(nonexistent)
+@@ -1,14 +0,0 @@
+-#include "program.h"
+-
+-void s276588_podprogram()
+-{
+-  printf("Student nr indeksu: 276588\n");
+-  printf("Program wczytuje liczbę całkowitą i drukuje ją pomnożoną przez 21\n");
+-  
+-  int x;
+-  printf("Podaj liczbę x: ");
+-  scanf("%d", &x);
+-
+-  printf("Liczba x pomnożona przez 21 wynosi: %d\n", x * 21);
+-}
+-
+
+Property changes on: s276588_podprogram.c
+___________________________________________________________________
+Deleted: svn:mime-type
+## -1 +0,0 ##
+-text/plain;charset=utf-8
+\ No newline at end of property
+Index: README
+===================================================================
+--- README	(.../trunk)	(revision 240)
++++ README	(.../branches/999)	(revision 240)
+@@ -1,4 +1,4 @@
+-Ten plik README utworzony, żeby studenci mogli umieszczać
++Ten plik README utworzony, żeby studenci mogli umieszczać 
+ tu opisy działania swoich podprogramów.
+ 
+ 
+@@ -10,32 +10,12 @@
+ 
+          0 - wyświetla ogólny opis działania podprogramów;
+        999 - wczytuje liczbę i drukuje jej kwadrat.
+-    272397 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 6.
+-    272354 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 7.
+-    272385 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 8.
+-    272369 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 9.
+-    272388 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 10.
+-    272355 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 11.
+-    272379 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 12.
+-    272383 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 13.
+-    272359 - wczytuje liczbe i drukuje jej wartosc pomnozona przez 359
+-    272362 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 41.
+-    272370 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 17.
+-    272402 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 1508.
+-    272389 - drukuje na wyjściu standardowym swój kod źródłowy
+-    272392 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 88.
+-    272374 - wczytuje liczbę i drukuje jej sześcian.
+-    272395 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 22.
+-    274037 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 20.
+-    276588 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 21.
+-    272382 - wczytuje liczbę i drukuje jej czwartą potęgę.
+-    272358 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 100.
+-    272380 - wczytuje napis i drukuje jego odwrotność.
+-    272360 - wczytuje liczbę i drukuje jej wartość pomnożoną przez 360.
+ 
+-Dodatkowo, po zreintegrowaniu swojej gałęzi do trunk-a student ma utworzyć
+-w katalogu:
+ 
+-^/app_1/tags
+ 
++Dodatkowo, po zreintegrowaniu swojej gałęzi do trunk-a student ma utworzyć 
++w katalogu: 
++
++https://156.17.7.16/svn/lab/piaskownica/app_1/tags
++
+ własnego taga tej wersji o nazwie: v_<nr_indeksu>
+Index: main.c
+===================================================================
+--- main.c	(.../trunk)	(revision 240)
++++ main.c	(.../branches/999)	(revision 240)
+@@ -1,99 +1,30 @@
+ #include "program.h"
+ 
++
+ int main(int argc, char *argv[])
+ {
+ 
+-  if (argc != 2)
+-  {
+-    program_usage();
+-    exit(EXIT_FAILURE);
+-  }
++  if(argc!=2)
++    {
++      program_usage();
++      exit(EXIT_FAILURE);
++    }
+ 
+   {
+-    int idx = atoi(argv[1]);
+-    switch (idx)
+-    {
+-    case 0:
+-      s0_podprogram(); // podprogram studenta o numerze indeksu 0
++    int idx=atoi(argv[1]);
++    switch( idx )
++      {
++      case 0:
++        s0_podprogram() ; // podprogram studenta o numerze indeksu 0
++        break;
++       case 999:
++	s999_podprogram() ; // podprogram studenta o numerze indeksu 999
++	break;
++      default:
++	printf("\nStudent o numerze indeksu %d nie wykonał jeszcze zadania\n\n",idx); 
+       break;
+-    case 999:
+-      s999_podprogram(); // podprogram studenta o numerze indeksu 999
+-      break;
+-    case 272397:
+-      s272397_podprogram(); // podprogram studenta o numerze indeksu 272397
+-      break;
+-    case 272354:
+-      s272354_podprogram(); // podprogram studenta o numerze indeksu 272354
+-      break;
+-    case 272385:
+-      s272385_podprogram(); // podprogram studenta o numerze indeksu 272385
+-      break;
+-    case 272369:
+-      s272369_podprogram(); // podprogram studenta o numerze indeksu 272369
+-      break;
+-    case 272388:
+-      s272388_podprogram(); // podprogram studenta o numerze indeksu 272388
+-      break;
+-    case 272355:
+-      s272355_podprogram(); // podprogram studenta o numerze indeksu 272355
+-      break;
+-    case 272379:
+-      s272379_podprogram(); // podprogram studenta o numerze indeksu 272379
+-      break;
+-    case 272383:
+-      s272383_podprogram(); // podprogram studenta o numerze indeksu 272383
+-      break;
+-    case 272370:
+-      s272370_podprogram(); // podprogram studenta o numerze indeksu 272370
+-      break;
+-    case 272402:
+-      s272402_podprogram(); // podprogram studenta o numerze indeksu 272402
+-      break;
+-    case 272389:
+-      s272389_podprogram(); // podprogram studenta o numerze indeksu 272389
+-      break;
+-    case 272392:
+-      s272392_podprogram(); // podprogram studenta o numerze indeksu 272392
+-      break;
+-    case 272374:
+-      s272374_podprogram(); // podprogram studenta o numerze indeksu 272374
+-      break;
+-    case 272362:
+-      s272362_podprogram(); // podprogram studenta o numerze indeksu 272362
+-      break;
+-    case 272395:
+-      s272395_podprogram(); // podprogram studenta o numerze indeksu 272395
+-      break;
+-    case 274037:
+-      s274037_podprogram(); // podprogram studenta o numerze indeksu 274037
+-      break;
+-    case 276588:
+-      s276588_podprogram(); // podprogram studenta o numerze indeksu 276588
+-      break;
+-    case 272382:
+-      s272382_podprogram(); // podprogram studenta o numerze indeksu 272382
+-      break;
+-    case 272378:
+-      s272378_podprogram(); // podprogram studenta o numerze indeksu 272378
+-      break;
+-    case 272359:
+-      s272359_podprogram(); // podprogram studenta o numerze indeksu 272359
+-      break;
+-    case 272358:
+-      s272358_podprogram(); // podprogram studenta o numerze indeksu 272358
+-      break;
+-    case 272380:
+-      s272380_podprogram(); // podprogram studenta o numerze indeksu 272380
+-      break;
+-    case 272360:
+-      s272360_podprogram(); // podprogram studenta o numerze indeksu 272380
+-      break;  
+ 
+-    default:
+-      printf("\nStudent o numerze indeksu %d nie wykonał jeszcze zadania\n\n",
+-             idx);
+-      break;
+-    }
++      }
+   }
+   exit(EXIT_SUCCESS);
+ }
+Index: makefile
+===================================================================
+--- makefile	(.../trunk)	(revision 240)
++++ makefile	(.../branches/999)	(revision 240)
+@@ -1,29 +1,6 @@
+ objects = main.o program_usage.o \
+           s0_podprogram.o \
+-          s999_podprogram.o \
+-	  s272397_podprogram.o \
+-          s272354_podprogram.o \
+-	  s272385_podprogram.o \
+-	  s272369_podprogram.o \
+-	  s272355_podprogram.o \
+-	  s272388_podprogram.o \
+-	  s272379_podprogram.o \
+-	  s272383_podprogram.o \
+-	  s272370_podprogram.o \
+-	  s272402_podprogram.o \
+-	  s272389_podprogram.o \
+-	  s272392_podprogram.o \
+-	  s272374_podprogram.o \
+-	  s272362_podprogram.o \
+-	  s272395_podprogram.o \
+-	  s274037_podprogram.o \
+-	  s276588_podprogram.o \
+-	  s272378_podprogram.o \
+-	  s272382_podprogram.o \
+-	  s272359_podprogram.o \
+-	  s272358_podprogram.o \
+-	  s272380_podprogram.o \
+-	  s272360_podprogram.o
++          s999_podprogram.o
+ 
+ program : $(objects)
+ 	cc -o program $(objects)
+@@ -35,54 +12,8 @@
+ 
+ s999_podprogram.o : program.h
+ 
+-s272397_podprogram.o : program.h
+-
+-s272362_podprogram.o : program.h
+-
+-s272354_podprogram.o : program.h
+-
+-s272385_podprogram.o : program.h
+-
+-s272369_podprogram.o : program.h
+-
+-s272388_podprogram.o : program.h
+-
+-s272355_podprogram.o : program.h
+-
+-s272358_podprogram.o : program.h
+-
+-s272379_podprogram.o : program.h
+-
+-s272382_podprogram.o : program.h
+-
+-s272383_podprogram.o : program.h
+-
+-s272370_podprogram.o : program.h
+-
+-s272402_podprogram.o : program.h
+-
+-s272389_podprogram.o : program.h
+-
+-s272392_podprogram.o : program.h
+-
+-s272374_podprogram.o : program.h
+-
+-s272395_podprogram.o : program.h
+-
+-s274037_podprogram.o : program.h
+-
+-s276588_podprogram.o : program.h
+-
+-s272378_podprogram.o : program.h
+-
+-s272359_podprogram.o : program.h
+-
+-s272380_podprogram.o : program.h
+-
+-s272360_podprogram.o : program.h
+-
+ .PHONY : clean
+ 
+-clean :
++clean : 
+ 	-rm *.o program
+ 
+Index: program.h
+===================================================================
+--- program.h	(.../trunk)	(revision 240)
++++ program.h	(.../branches/999)	(revision 240)
+@@ -1,38 +1,20 @@
++#include <stdlib.h>
+ #include <stdio.h>
+-#include <stdlib.h>
+ #include <string.h>
+ 
++
+ /* deklaracje funkcji używanych w programie */
+-void program_usage();
++void program_usage( );
+ 
++
+ /* tu studenci mogą deklarować własne funkcje.
+    Wszystkie nazwy funkcji studenta o numerze indeksu NNNNNN
+    powinny rozpoczynać się od przedrostka sNNNNNN_
+    aby nie kolidowały z nazwami funkcji innych studentów */
+ 
+-void s0_podprogram();      /* funkcja studenta 0 */
+-void s999_podprogram();    /* funkcja studenta 999 */
+-void s272397_podprogram(); /* funkcja studenta 272397 */
+-void s272354_podprogram(); /* funkcja studenta 272354 */
+-void s272385_podprogram(); /*funkcja studenta 272385 */
+-void s272369_podprogram(); /*funkcja studenta 272369 */
+-void s272388_podprogram(); /*funkcja studenta 272388 */
+-void s272355_podprogram(); /*funkcja studenta 272355 */
+-void s272379_podprogram(); /*funkcja studenta 272379 */
+-void s272383_podprogram(); /*funkcja studenta 272383 */
+-void s272370_podprogram(); /*funkcja studenta 272370 */
+-void s272402_podprogram(); /*funkcja studenta 272402 */
+-void s272389_podprogram(); /* funkcja studenta 272389 */
+-void s272392_podprogram(); /* funkcja studenta 272392 */
+-void s272374_podprogram(); /* funkcja studenta 272374 */
+-void s272395_podprogram(); /* funkcja studenta 272395 */
+-void s272362_podprogram(); /* funkcja studenta 272362 */
+-void s274037_podprogram(); /* funkcja studenta 274037 */
+-void s276588_podprogram(); /* funkcja studenta 276588 */
+-void s272382_podprogram(); /* funkcja studenta 272382 */
+-void s272378_podprogram(); /* funkcja studenta 272378 */
+-void s272359_podprogram(); /* funkcja studenta 272359 */
+-void s272358_podprogram(); /* funkcja studenta 272358 */
+-void s272380_podprogram(); /* funkcja studenta 272380 */
+-void s272360_podprogram(); /* funkcja studenta 272360 */
++void s0_podprogram(); /* funkcja studenta 0 */
++void s999_podprogram(); /* funkcja studenta 999 */
+ 
++
++
++ 
+Index: .
+===================================================================
+--- .	(.../trunk)	(revision 240)
++++ .	(.../branches/999)	(revision 240)
+
+Property changes on: .
+___________________________________________________________________
+Modified: svn:mergeinfo
+## -0,25 +0,1 ##
+   Reverse-merged /app_1/branches/272359:r198-199
+   Reverse-merged /app_1/branches/272369:r43-45
+   Reverse-merged /app_1/branches/272378:r192-194
+   Reverse-merged /app_1/branches/272397:r14-16
+   Reverse-merged /app_1/branches/272388:r50-51
+   Reverse-merged /app_1/branches/272379:r61-86
+   Reverse-merged /app_1/branches/272389:r126-129
+   Reverse-merged /app_1/branches/999:r2-9
+   Reverse-merged /app_1/branches/branches_s274037:r169-171
+   Reverse-merged /app_1/branches/branches_s272395:r151-152
+   Reverse-merged /app_1/branches/272402:r120-122
+   Reverse-merged /app_1/branches/branches_s276588:r175-178
+   Reverse-merged /app_1/branches/272360:r221-224,228-233
+   Reverse-merged /app_1/branches/272370:r114-116
+   Reverse-merged /app_1/branches/272362:r156-160
+   Reverse-merged /app_1/branches/272380:r209-217
+   Reverse-merged /app_1/branches/272354:r20-28
+   Reverse-merged /app_1/branches/272382:r182-183
+   Reverse-merged /app_1/branches/272355:r55-57
+   Reverse-merged /app_1/branches/272383:r90-92,99-101,106-108
+   Reverse-merged /app_1/branches/272374:r144-146
+   Reverse-merged /app_1/branches/272392:r133-135
+   Reverse-merged /app_1/branches/272375:r139-141
+   Reverse-merged /app_1/branches/272385:r35-37
+   Reverse-merged /app_1/branches/272358:r203-207
+   Merged /app_1/trunk:r2-7
+anna@anna:~/mk1-272395/SP/lab3$ svn blame https://repo.cs.pwr.edu.pl/p-2/app_1/branches/999/s999_podprogram.c
+     1      admin #include "program.h"
+     1      admin 
+     5        999 void s999_podprogram()
+     1      admin {
+     5        999 
+     5        999   printf("Student Sztuczny nr indeksu: 999\n");
+     5        999   printf("Program wczytuje liczbę całkowitą i drukuje jej kwadrat\n");
+     5        999   int x;
+     5        999   printf("Podaj liczbę x: ");
+     5        999   scanf("%d", &x);
+     5        999 
+     5        999   printf("Liczba x do kwadratu wynosi: %d\n", x*x);
+     5        999 
+     1      admin }
+
+

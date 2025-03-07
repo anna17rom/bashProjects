@@ -1,0 +1,3 @@
+Linia 1: Tekst oryginalny
+Linia 2: Zmiana z drugiej kopii roboczej
+

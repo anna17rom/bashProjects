@@ -1,0 +1,3 @@
+To jest zawartość pliku a.txt
+Dopisek do pliku b/a.txt po przeniesieniu
+Dopisek do pliku b/a.txt przed zmianą nazwy
